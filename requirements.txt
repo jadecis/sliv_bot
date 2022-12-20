@@ -1,0 +1,13 @@
+aiogram==2.23.1
+Pillow==9.3.0
+requests
+BeautifulSoup4
+undetected_chromedriver
+selenium
+vkbottle
+loguru
+YooMoney
+lxml
+emoji==2.2.0
+pymorphy2==0.9.1
+aioschedule
