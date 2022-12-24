@@ -12,15 +12,20 @@ async def start1(update: ChatJoinRequest):
         db.add_user(update.from_user.id, update.from_user.username)
     try:
         await update.approve()
+        name= update.from_user.first_name if update.from_user.first_name else ""
+        name+= f" {update.from_user.last_name}" if update.from_user.last_name else ""
         # await bot.send_photo(chat_id=update.from_user.id,
         #                     photo=open('src/screens/start_channel.jpg', 'rb'),
-        await bot.send_message(chat_id=update.from_user.id,
-                            text=f"""
-<b>Привет, я бот, который найдёт фото любой девушки, которая хоть раз скидывала кому-то интим фото в ВК, Телеграм или Instagram🔥</b>
+        await bot.send_message(chat_id=update.from_user.id,text=f"""
+👋Пpивeт, {name}?!            
 
-👇🏻Проверь свою подругу 💋
+🤖 Я - Heйpoceть, koтoрaя ищeт интимные фoтo в тыcячax бaз пo вceму интepнeту.
 
-/start /start /start /start""",
+🔎 Oтпpaвь мне ccылку нa ВKoнтaктe, Instagrаm, Тelegram или нoмep тeлeфoнa!
+
+☺️Kaк рaбoтaeт ФoтoПoиcк - https://telegra.ph/Kak-rabotaet-fotopoisk-11-11
+
+Используя бот вы coглaшaeтecь c {hlink('oфeртoй нa okaзaниe инфoрмaциoнныx уcлуг', 'https://telegra.ph/OFERTA-NA-OKAZANIE-INFORMACIONNYH-USLUG-11-06-2')}""",
                     parse_mode=html)
     except Exception as ex:
         print(ex)
